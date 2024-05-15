@@ -1,0 +1,29 @@
+version: '3.27.0' 
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - '3000:3000'
+    depends_on:
+      - front
+      - db
+  frontend:
+    build: 
+      context: ./front/
+    ports:
+      - '3001:3001'
+    depends_on:
+      - back
+  banco:
+    image: mariadb:10.6.12
+    restart: always
+    ports:
+      - '3307: 3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      # MYSQL_USER: rafaela
+      # MYSQL_PASSWORD: 1234
+      MYSQL_DATABASE: cadastro
+    volumes:
+      - ./data:/var/lib/mysql
