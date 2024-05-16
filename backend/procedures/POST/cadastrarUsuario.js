@@ -1,4 +1,5 @@
 const bcrypt = require('bcryptjs');
+// const {insertUser} = require('./insertUser')
 
 async function inserirUsuario(pool, usuario) {
   const { nome, sobrenome, email, senha, cpf, rua, numero, bairro, cidade, estado, pais, celular, termos } = usuario;
@@ -16,6 +17,8 @@ async function inserirUsuario(pool, usuario) {
     const values = [nome, sobrenome, email, hashedSenha, cpf, rua, numero, bairro, cidade, estado, pais, celular, termos];
     await connection.query(queryText, values);
 
+    connection.release();
+    // await insertUser(nome, email, cpf);
 
     return { success: true };
   } catch (error) {

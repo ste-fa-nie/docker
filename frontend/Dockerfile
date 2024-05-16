@@ -1,6 +1,7 @@
-FROM node:21
-WORKDIR /front-node
-EXPOSE 3001
-COPY . .
+FROM node:latest
+WORKDIR /frontend
+COPY . /frontend
 RUN npm install
+EXPOSE 3000
+#ENTRYPOINT npm start
 CMD ["npm", "start"]
