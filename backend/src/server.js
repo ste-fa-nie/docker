@@ -11,8 +11,8 @@ const pool = mariadb.createPool({
   host: '35.171.73.11',
   port: 3306,
   user: 'root',
-  password: 'fatec',
-  database: 'agenda'
+  password: '1234',
+  database: 'cadastro'
 });
 
 const cors = require('cors'); // Importe o pacote CORS
