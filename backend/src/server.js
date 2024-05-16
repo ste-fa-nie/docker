@@ -23,7 +23,7 @@ app.use(cors()); // Use o middleware CORS
 // Rota para inserir um novo usuário
 app.post('/usuarios', async (req, res) => {
   const usuario = req.body;
-
+  console.log('Dados do usuário recebidos:', usuario);
   try {
     const resultado = await cadastrarUsuario.inserirUsuario(pool, usuario);
     res.json(resultado);
