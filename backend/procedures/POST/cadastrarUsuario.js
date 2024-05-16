@@ -18,7 +18,6 @@ async function inserirUsuario(pool, usuario) {
     await connection.query(queryText, values);
 
     connection.release();
-    // await insertUser(nome, email, cpf);
 
     return { success: true };
   } catch (error) {
